@@ -1,4 +1,7 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import FormAddTodoItem from "@/assets/components/FormAddTodoItem.vue";
+</script>
 <template>
-  <div>My app</div>
+  <div class="text-center">ToDo List</div>
+  <FormAddTodoItem />
 </template>
