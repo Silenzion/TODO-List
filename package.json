@@ -10,9 +10,13 @@
     "lint:style": "stylelint src/**/*.{css,scss,vue}"
   },
   "dependencies": {
+    "@types/faker": "^6.6.9",
+    "@types/uuid": "^8.3.4",
     "axios": "^0.26.1",
     "class-transformer": "^0.5.1",
+    "faker": "^6.6.6",
     "pinia": "^2.0.13",
+    "uuid": "^8.3.2",
     "vue": "^3.2.31",
     "vue-router": "^4.0.14"
   },
