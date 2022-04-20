@@ -2,6 +2,6 @@
 import FormAddTodoItem from "@/assets/components/FormAddTodoItem.vue";
 </script>
 <template>
-  <div class="text-center">ToDo List</div>
+  <div class="mb-20 text-center">ToDo List</div>
   <FormAddTodoItem />
 </template>

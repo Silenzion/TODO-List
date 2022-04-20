@@ -1,4 +1,4 @@
-import { generateFakeData, TodoItemModel } from "../models/TodoItemModel";
+import { generateFakeData, TodoItemModel } from "@/assets/models/TodoItemModel";
 import { defineStore } from "pinia";
 
 export type RootState = {

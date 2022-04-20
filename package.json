@@ -10,18 +10,18 @@
     "lint:style": "stylelint src/**/*.{css,scss,vue}"
   },
   "dependencies": {
-    "@types/faker": "^6.6.9",
     "@types/uuid": "^8.3.4",
     "axios": "^0.26.1",
     "class-transformer": "^0.5.1",
     "element-plus": "^2.1.9",
-    "faker": "^6.6.6",
     "pinia": "^2.0.13",
     "uuid": "^8.3.2",
     "vue": "^3.2.31",
     "vue-router": "^4.0.14"
   },
   "devDependencies": {
+    "@faker-js/faker": "^6.1.2",
+    "@types/faker": "^6.6.9",
     "@types/node": "^16.11.10",
     "@types/webfontloader": "^1.6.34",
     "@typescript-eslint/eslint-plugin": "^5.15.0",
