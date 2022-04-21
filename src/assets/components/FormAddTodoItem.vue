@@ -4,17 +4,20 @@ import { useMainStore } from "../store";
 import { ElMessage } from "element-plus";
 import { TodoItemModel, TodoItemState } from "../models/TodoItemModel";
 
-const form = ref<TodoItemModel>({
-  description: "",
-  state: TodoItemState.TODO,
-  created_at: new Date(),
-});
+const form = ref<TodoItemModel>(
+  new TodoItemModel({
+    description: "",
+    state: TodoItemState.TODO,
+    created_at: new Date(),
+  })
+);
 
 const store = useMainStore();
 
 const onSubmit = () => {
   store.createNewItem(form.value);
   showMessage();
+  form.value = new TodoItemModel();
 };
 
 const showMessage = () => {
@@ -26,8 +29,9 @@ const showMessage = () => {
   });
 };
 </script>
+
 <template>
-  <el-form :inline="true" :model="form" class="border border-gray-100 text-center">
+  <el-form :inline="true" :model="form" class="mb-20 border border-gray-100 pt-20 text-center">
     <el-form-item>
       <el-input v-model="form.description" type="text" placeholder="Что нужно сделать?" />
     </el-form-item>

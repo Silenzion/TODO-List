@@ -9,12 +9,17 @@ export const useMainStore = defineStore({
   id: "mainStore",
   state: () =>
     ({
-      items: [],
+      items: <TodoItemModel[]>[],
     } as RootState),
+  getters: {
+    getItems: (state) => state.items,
+    getLastIndex: (state) => (state.items.length ? state.items[state.items?.length - 1].id : false),
+  },
   actions: {
     createNewItem(item: TodoItemModel) {
       if (!item) return;
-
+      // @ts-ignore
+      item.id = this.getLastIndex !== false ? this.getLastIndex + 1 : 0;
       this.items.push(item);
     },
 
