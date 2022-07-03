@@ -15,10 +15,11 @@ export class TodoItemModel {
     Object.assign(this, init);
   }
 }
+
 export function generateFakeData(): TodoItemModel {
   return new TodoItemModel({
     description: "Task",
     state: TodoItemState.TODO,
     created_at: new Date(),
-});
+  });
 }

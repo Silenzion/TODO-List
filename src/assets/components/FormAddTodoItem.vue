@@ -3,6 +3,7 @@ import { ref } from "vue";
 import { useMainStore } from "../store";
 import { ElMessage } from "element-plus";
 import { TodoItemModel, TodoItemState } from "../models/TodoItemModel";
+import {Plus} from "@element-plus/icons-vue"
 
 const form = ref<TodoItemModel>(
   new TodoItemModel({
@@ -15,6 +16,7 @@ const form = ref<TodoItemModel>(
 const store = useMainStore();
 
 const onSubmit = () => {
+  if (!form.value.description) return;
   store.createNewItem(form.value);
   showMessage();
   form.value = new TodoItemModel();
@@ -31,12 +33,12 @@ const showMessage = () => {
 </script>
 
 <template>
-  <el-form :inline="true" :model="form" class="mb-20 border border-gray-100 pt-20 text-center">
+  <el-form :inline="true" :model="form" class="mb-20 pt-20 text-center">
     <el-form-item>
       <el-input v-model="form.description" type="text" placeholder="Что нужно сделать?" />
     </el-form-item>
-    <el-form-item>
-      <el-button type="primary" @click="onSubmit">Create</el-button>
+    <el-form-item class="!mr-0">
+      <el-button type="primary" class="mr-0" :icon="Plus" circle @click="onSubmit" />
     </el-form-item>
   </el-form>
 </template>

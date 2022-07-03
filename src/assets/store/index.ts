@@ -1,4 +1,4 @@
-import { generateFakeData, TodoItemModel } from "@/assets/models/TodoItemModel";
+import { generateFakeData, TodoItemModel, TodoItemState } from "@/assets/models/TodoItemModel";
 import { defineStore } from "pinia";
 
 export type RootState = {
@@ -9,7 +9,14 @@ export const useMainStore = defineStore({
   id: "mainStore",
   state: () =>
     ({
-      items: <TodoItemModel[]>[],
+      items: <TodoItemModel[]>[
+        new TodoItemModel({
+          id: 1,
+          description: "Почитать кинигу",
+          state: TodoItemState.TODO,
+          created_at: new Date(),
+        }),
+      ],
     } as RootState),
   getters: {
     getItems: (state) => state.items,
