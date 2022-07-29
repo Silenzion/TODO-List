@@ -5,7 +5,7 @@ import TodoItemList from "./assets/components/TodoItemList.vue";
 <template>
   <div class="flex min-h-screen w-full items-center justify-center">
     <el-card class="flex max-w-[480px] flex-col items-center">
-      <div class="mb-20 text-left font-bold">TODO List</div>
+      <div class="mb-20 text-left font-bold">TO DO LIST</div>
       <FormAddTodoItem />
       <TodoItemList />
     </el-card>
