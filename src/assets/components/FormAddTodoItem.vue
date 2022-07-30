@@ -33,12 +33,28 @@ const showMessage = () => {
 </script>
 
 <template>
-  <el-form :inline="true" :model="form" class="text-center">
-    <el-form-item>
-      <el-input v-model="form.description" type="text" placeholder="Add new task" />
+  <el-form :model="form" class="flex justify-between text-center">
+    <el-form-item class="!mr-[5px] w-full">
+      <el-input v-model="form.description" class="el-input_lined" type="text" placeholder="Add new task" />
     </el-form-item>
     <el-form-item class="!mr-0">
       <el-button type="primary" class="mr-0" :icon="Plus" circle @click="onSubmit" />
     </el-form-item>
   </el-form>
 </template>
+
+<style lang="scss">
+.el-input_lined {
+  .el-input__inner {
+    border: none;
+    border-bottom: 1px solid rgb(75, 85, 99);
+    box-shadow: none !important;
+    background-color: transparent !important;
+    border-radius: 0;
+
+    &:focus {
+      border-color: #409eff;
+    }
+  }
+}
+</style>
