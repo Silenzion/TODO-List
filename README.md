@@ -4,7 +4,6 @@ Simple to do list.
 
 Github pages:
 
-[TodoList](https://silenzion.github.io/TODO-List/)
 https://silenzion.github.io/TODO-List/
 
 Stack:
