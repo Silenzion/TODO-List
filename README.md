@@ -3,7 +3,9 @@
 Simple to do list. 
 
 Github pages:
-[TodoList](https://silenzion.github.io/To-Do-Vue3-ts-/)
+
+[TodoList](https://silenzion.github.io/TODO-List/)
+https://silenzion.github.io/TODO-List/
 
 Stack:
 - Vue 3
