@@ -8,6 +8,7 @@ import OptimizationPersist from "vite-plugin-optimize-persist";
 import PkgConfig from "vite-plugin-package-config";
 
 export default defineConfig({
+  base: "https://silenzion.github.io/To-Do-Vue3-ts-/",
   plugins: [vue(), OptimizationPersist(), PkgConfig()],
   resolve: {
     alias: {

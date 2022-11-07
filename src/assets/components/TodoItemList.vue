@@ -25,7 +25,7 @@ const items = computed<TodoItemModel[]>(() => {
 <template>
   <div v-if="!!items.length" class="mt-[16px] w-full">
     <TransitionGroup name="list" tag="div">
-      <div v-for="(iter, index) in items" :key="iter" class="mb-[24px] w-full">
+      <div v-for="(iter, index) in items" :key="iter.description" class="mb-[24px] w-full">
         <div class="flex flex-row items-center justify-between py-[5px]">
           <div class="flex items-center">
             <button v-if="iter.state === TodoItemState.DONE" class="base-btn_circle text-green-700" @click="setStateIsTodo(iter)">
