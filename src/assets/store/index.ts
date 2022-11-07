@@ -25,12 +25,14 @@ export const useMainStore = defineStore({
       ],
     } as RootState),
   getters: {
-    getItems: (state) => state.items,
+    getItems: (state) => state.items.sort((a, b) => b.created_at.getTime() - a.created_at.getTime()),
     getLastIndex: (state): string | number | boolean => (!!state.items?.length ? state.items[state.items?.length - 1].id : false),
   },
   actions: {
     createNewItem(item: TodoItemModel): void {
       if (!item) return;
+      item.state = TodoItemState.TODO;
+      item.created_at = new Date();
       item.id = this.getLastIndex !== false ? +this.getLastIndex + 1 : 0;
       this.items.push(item);
     },

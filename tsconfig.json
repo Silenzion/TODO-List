@@ -21,7 +21,6 @@
     "paths": {
       "@/*": ["src/*"]
     },
-    "types": ["element-plus/global"],
     "lib": ["esnext", "dom", "dom.iterable", "scripthost"]
   },
   "include": [

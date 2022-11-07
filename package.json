@@ -1,5 +1,5 @@
 {
-  "name": "spaceX",
+  "name": "todo-vue3",
   "version": "0.0.1",
   "scripts": {
     "serve": "vite preview",
@@ -13,7 +13,6 @@
     "@types/uuid": "^8.3.4",
     "axios": "^0.26.1",
     "class-transformer": "^0.5.1",
-    "element-plus": "^2.1.9",
     "pinia": "^2.0.13",
     "uuid": "^8.3.2",
     "vue": "^3.2.31",
@@ -59,8 +58,6 @@
   "vite": {
     "optimizeDeps": {
       "include": [
-        "@element-plus/icons-vue",
-        "element-plus",
         "pinia",
         "vue"
       ]

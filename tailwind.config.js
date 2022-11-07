@@ -20,17 +20,20 @@ module.exports = {
 
     extend: {
       colors: {
-        stone: {
-          500: "#808080",
-          900: "#010001",
+        gray: {
+          100: "#cecece",
+          150: "#c8d0e7",
+          200: "#efefef",
+          300: "#f2f2f2",
+          600: "#575F6B",
         },
       },
 
       borderRadius: {
         none: "0",
         sm: "5px",
-        md: "8px",
-        lg: "0.5rem",
+        md: "16px",
+        lg: "40px",
         full: "9999px",
         large: "24px",
       },
