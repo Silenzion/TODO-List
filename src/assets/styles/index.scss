@@ -64,7 +64,7 @@ button:active {
   }
 
   &-input{
-    @apply p-8 rounded-md;
+    @apply py-8 px-12 rounded-md;
     box-shadow: inset 2px 2px 5px #c8d0e7, inset -2px -2px 5px #FFFFFF;
     caret-color: #575F6B;
   }
@@ -73,7 +73,7 @@ button:active {
 
     &_circle {
       @apply rounded-full align-middle;
-width: 40px;
+      width: 40px;
       height: 40px;
     }
   }

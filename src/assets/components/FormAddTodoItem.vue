@@ -21,10 +21,10 @@ const onSubmit = (): void => {
 </script>
 
 <template>
-  <div class="flex items-center justify-between rounded-lg p-24 text-center">
+  <div class="flex w-full items-center justify-between rounded-lg py-24 text-center">
     <input
       v-model="todoForm.description"
-      class="base-input mr-[10px] h-[40px] w-[288px]"
+      class="base-input mr-[10px] h-[40px] w-full"
       type="text"
       placeholder="Add new task"
       @keydown.enter="onSubmit"

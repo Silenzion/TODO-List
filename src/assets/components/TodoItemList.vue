@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import {computed, ref} from "vue";
+import { computed } from "vue";
 import { TodoItemModel, TodoItemState } from "../models/TodoItemModel";
 import { useMainStore } from "../store";
 
@@ -38,7 +38,7 @@ const items = computed<TodoItemModel[]>(() => {
             >
               <i class="fa fa-check transition-all" aria-hidden="true"></i>
             </button>
-            <div class="ml-[8px] text-left" :class="{ 'line-through': iter.state === TodoItemState.DONE }">
+            <div class="ml-12 text-left" :class="{ 'line-through': iter.state === TodoItemState.DONE }">
               {{ iter.description }}
             </div>
           </div>

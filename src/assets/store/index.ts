@@ -17,7 +17,7 @@ export const useMainStore = defineStore({
           created_at: new Date(),
         }),
         new TodoItemModel({
-          id: 1,
+          id: 2,
           description: "Watch cinema",
           state: TodoItemState.DONE,
           created_at: new Date(),
