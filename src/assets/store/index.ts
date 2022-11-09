@@ -26,7 +26,18 @@ export const useMainStore = defineStore({
     } as RootState),
   getters: {
     getItems: (state) => state.items.sort((a, b) => b.created_at.getTime() - a.created_at.getTime()),
-    getLastIndex: (state): string | number | boolean => (!!state.items?.length ? state.items[state.items?.length - 1].id : false),
+    getLastIndex: (state): string | number | boolean => {
+      if (!!state.items?.length) {
+        return state.items.reduce((prev: number, cur: TodoItemModel) => {
+          if (prev > cur.id) {
+            return prev;
+          }
+          return cur.id;
+        }, 0);
+      } else {
+        return false;
+      }
+    },
   },
   actions: {
     createNewItem(item: TodoItemModel): void {

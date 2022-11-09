@@ -72,6 +72,7 @@ button:active {
   &-btn {
 
     &_circle {
+      @apply shrink-0;
       @apply rounded-full align-middle;
       width: 40px;
       height: 40px;

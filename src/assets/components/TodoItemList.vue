@@ -28,7 +28,11 @@ const items = computed<TodoItemModel[]>(() => {
       <div v-for="(iter, index) in items" :key="iter.description" class="mb-[24px] w-full">
         <div class="flex flex-row items-center justify-between py-[5px]">
           <div class="flex items-center">
-            <button v-if="iter.state === TodoItemState.DONE" class="base-btn_circle text-green-700" @click="setStateIsTodo(iter)">
+            <button
+              v-if="iter.state === TodoItemState.DONE"
+              class="base-btn_circle text-green-700"
+              @click="setStateIsTodo(iter)"
+            >
               <i class="fa fa-check" aria-hidden="true"></i>
             </button>
             <button
@@ -42,7 +46,7 @@ const items = computed<TodoItemModel[]>(() => {
               {{ iter.description }}
             </div>
           </div>
-          <button class="base-btn_circle text-red-700" @click="deleteElement(iter)">
+          <button class="base-btn_circle  text-red-700" @click="deleteElement(iter)">
             <i class="fa fa-trash-o" aria-hidden="true"></i>
           </button>
         </div>
