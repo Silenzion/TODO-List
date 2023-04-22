@@ -1,6 +1,6 @@
 {
   "name": "todo-vue3",
-  "homepage" : "https://silenzion.github.io/To-Do-Vue3-ts-/",
+  "homepage" : "https://github.com/Silenzion/TODO-List/",
   "version": "0.0.1",
   "scripts": {
     "serve": "vite preview",
