@@ -21,7 +21,7 @@ const onSubmit = (): void => {
 </script>
 
 <template>
-  <div class="flex w-full items-center justify-between rounded-lg py-24 text-center">
+  <div class="flex w-full items-center justify-between rounded-lg p-24 text-center">
     <input
       v-model="todoForm.description"
       class="base-input"
