@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "ES2018",
+    "target": "ESNext",
     "useDefineForClassFields": true,
     "module": "esnext",
     "strict": true,
@@ -21,7 +21,8 @@
     "paths": {
       "@/*": ["src/*"]
     },
-    "lib": ["esnext", "dom", "dom.iterable", "scripthost"]
+    "lib": ["esnext", "dom", "dom.iterable", "scripthost"],
+    "types": ["@types/node","vite/client","@types/jest"]
   },
   "include": [
     "src/**/*.js",
