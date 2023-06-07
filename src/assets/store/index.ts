@@ -3,6 +3,7 @@ import { TodoItem } from "../models/TodoItem";
 import { defineStore } from "pinia";
 import { v4 as uuid } from "uuid";
 import { faker } from '@faker-js/faker';
+
 export type RootState = {
   items: TodoItem[];
 };
@@ -14,13 +15,13 @@ export const useMainStore = defineStore({
       items: <TodoItem[]>[
         new TodoItem({
           id: uuid(),
-          description: faker.lorem.paragraph(),
+          description: faker.random.words(3),
           state: ETodoItemState.TODO,
           created_at: new Date(),
         }),
         new TodoItem({
           id: uuid(),
-          description: faker.lorem.paragraph(),
+          description: faker.random.words(3),
           state: ETodoItemState.DONE,
           created_at: new Date(),
         }),

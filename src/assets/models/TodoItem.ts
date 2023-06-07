@@ -1,3 +1,4 @@
+import { v4 as uuid } from "uuid";
 import { ETodoItemState } from "./ETodoItemState.enum";
 
 export class TodoItem {
@@ -5,9 +6,11 @@ export class TodoItem {
   description: string;
   state: ETodoItemState;
   created_at: Date;
-  deleted_at?: Date;
 
-  public constructor(init?: Partial<TodoItem>) {
-    // Object.assign(this, init);
+  public constructor(dto?: Partial<TodoItem>) {
+    this.id = dto?.id || uuid();
+    this.description = dto?.description || "";
+    this.state = ETodoItemState.TODO;
+    this.created_at = dto.created_at || new Date();
   }
 }
