@@ -1,25 +1,27 @@
-import { TodoItemModel, TodoItemState } from "@/assets/models/TodoItemModel";
+import { ETodoItemState } from "../models/ETodoItemState.enum";
+import { TodoItem } from "../models/TodoItem";
 import { defineStore } from "pinia";
-
+import { v4 as uuid } from "uuid";
+import { faker } from '@faker-js/faker';
 export type RootState = {
-  items: TodoItemModel[];
+  items: TodoItem[];
 };
 
 export const useMainStore = defineStore({
   id: "mainStore",
   state: () =>
     ({
-      items: <TodoItemModel[]>[
-        new TodoItemModel({
-          id: 1,
-          description: "Read book",
-          state: TodoItemState.TODO,
+      items: <TodoItem[]>[
+        new TodoItem({
+          id: uuid(),
+          description: faker.lorem.paragraph(),
+          state: ETodoItemState.TODO,
           created_at: new Date(),
         }),
-        new TodoItemModel({
-          id: 2,
-          description: "Watch cinema",
-          state: TodoItemState.DONE,
+        new TodoItem({
+          id: uuid(),
+          description: faker.lorem.paragraph(),
+          state: ETodoItemState.DONE,
           created_at: new Date(),
         }),
       ],
@@ -28,7 +30,7 @@ export const useMainStore = defineStore({
     getItems: (state) => state.items.sort((a, b) => b.created_at.getTime() - a.created_at.getTime()),
     getLastIndex: (state): string | number | boolean => {
       if (!!state.items?.length) {
-        return state.items.reduce((prev: number, cur: TodoItemModel) => {
+        return state.items.reduce((prev: number, cur: TodoItem) => {
           if (prev > cur.id) {
             return prev;
           }
@@ -40,21 +42,21 @@ export const useMainStore = defineStore({
     },
   },
   actions: {
-    createNewItem(item: TodoItemModel): void {
+    createNewItem(item: TodoItem): void {
       if (!item) return;
-      item.state = TodoItemState.TODO;
+      item.state = ETodoItemState.TODO;
       item.created_at = new Date();
-      item.id = this.getLastIndex !== false ? +this.getLastIndex + 1 : 0;
+      item.id = this.getLastIndex !== false ? this.getLastIndex + 1 : 0;
       this.items.push(item);
     },
 
-    setItemState(id: number, state: TodoItemState): void {
+    setItemState(id: string, state: ETodoItemState): void {
       const item = this.items.find((item) => item.id === id);
       if (!item) return;
       item.state = state;
     },
 
-    deleteItem(id: number): void {
+    deleteItem(id: string): void {
       const index = this.findIndexById(id);
 
       if (index === -1) return;
@@ -62,7 +64,7 @@ export const useMainStore = defineStore({
       this.items.splice(index, 1);
     },
 
-    findIndexById(id: number): number {
+    findIndexById(id: string): number {
       return this.items.findIndex((item) => item.id === id);
     },
   },

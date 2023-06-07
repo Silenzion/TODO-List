@@ -1,22 +1,24 @@
 <script lang="ts" setup>
 import { ref } from "vue";
 import { useMainStore } from "../store";
-import { TodoItemModel, TodoItemState } from "../models/TodoItemModel";
+import { TodoItem } from "../models/TodoItem";
+import {ETodoItemState} from "../models/ETodoItemState.enum";
 
 const store = useMainStore();
 
-const todoForm = ref<TodoItemModel>(
-  new TodoItemModel({
+const todoForm = ref<TodoItem>(
+  new TodoItem({
     description: "",
-    state: TodoItemState.TODO,
+    state: ETodoItemState.TODO,
     created_at: new Date(),
   })
 );
 
 const onSubmit = (): void => {
-  if (!todoForm.value.description) return;
-  store.createNewItem(todoForm.value);
-  todoForm.value = new TodoItemModel();
+  if (todoForm.value.description) {
+    store.createNewItem(todoForm.value);
+    todoForm.value = new TodoItem();
+  }
 };
 </script>
 

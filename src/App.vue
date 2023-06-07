@@ -10,9 +10,7 @@ import TodoItemList from "./assets/components/TodoItemList.vue";
     >
       <div class="mb-20 text-left font-bold">TO DO LIST</div>
       <FormAddTodoItem />
-      <div class="sm:overflow-visible overflow-y-auto overflow-x-visible w-full px-24">
       <TodoItemList />
-      </div>
     </div>
   </div>
 </template>
