@@ -11,8 +11,7 @@
     "eslint:recommended",
     "@vue/typescript/recommended",
     "@vue/prettier",
-    // "@vue/prettier/@typescript-eslint",
-    "plugin:tailwindcss/recommended",
+     "@vue/prettier/@typescript-eslint",
     "prettier"
   ],
   "parserOptions": {
@@ -37,12 +36,6 @@
       {
         "endOfLine": "auto"
       }
-    ],
-    "tailwindcss/classnames-order": "off",
-    // "tailwindcss/enforces-shorthand": "warn",
-    // "tailwindcss/migration-from-tailwind-2": "warn",
-    "tailwindcss/no-arbitrary-value": "off",
-    "tailwindcss/no-custom-classname": "off",
-    "tailwindcss/no-contradicting-classname": "error"
+    ]
   }
 }

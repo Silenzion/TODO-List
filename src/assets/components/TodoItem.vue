@@ -1,8 +1,7 @@
 <script setup lang="ts">
-import {defineProps} from "vue";
-import {TodoItem} from "../models/TodoItem";
-import {ETodoItemState} from "../models/ETodoItemState.enum";
-import {useMainStore} from "../store";
+import TodoItem from "@/assets/models/TodoItem";
+import {ETodoItemState} from "@/assets/models/ETodoItemState.enum";
+import {useMainStore} from "@/assets/store";
 
 const props = defineProps<{
   model: TodoItem
@@ -10,12 +9,12 @@ const props = defineProps<{
 
 const store = useMainStore();
 
-const deleteElement = async (iter: TodoItem): Promise<void> => {
-  store.deleteItem(iter.id);
+const deleteElement = async (): Promise<void> => {
+  store.deleteItem(props.model.id);
 };
 
-const setStateIsDone = (iter: TodoItem): void => {
-  store.setItemState(iter.id, ETodoItemState.DONE);
+const setStateIsDone = (): void => {
+  store.setItemState(props.model.id, ETodoItemState.DONE);
 };
 
 const setStateIsTodo = (): void => {

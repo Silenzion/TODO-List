@@ -1,5 +1,5 @@
 import { ETodoItemState } from "../models/ETodoItemState.enum";
-import { TodoItem } from "../models/TodoItem";
+import  TodoItem  from "../models/TodoItem";
 import { defineStore } from "pinia";
 import { v4 as uuid } from "uuid";
 import { faker } from '@faker-js/faker';
@@ -15,13 +15,13 @@ export const useMainStore = defineStore({
       items: <TodoItem[]>[
         new TodoItem({
           id: uuid(),
-          description: faker.random.words(3),
+          description: faker.word.sample(),
           state: ETodoItemState.TODO,
           created_at: new Date(),
         }),
         new TodoItem({
           id: uuid(),
-          description: faker.random.words(3),
+          description: faker.word.sample(),
           state: ETodoItemState.DONE,
           created_at: new Date(),
         }),
@@ -29,18 +29,6 @@ export const useMainStore = defineStore({
     } as RootState),
   getters: {
     getItems: (state) => state.items.sort((a, b) => b.created_at.getTime() - a.created_at.getTime()),
-    getLastIndex: (state): string | number | boolean => {
-      if (!!state.items?.length) {
-        return state.items.reduce((prev: number, cur: TodoItem) => {
-          if (prev > cur.id) {
-            return prev;
-          }
-          return cur.id;
-        }, 0);
-      } else {
-        return false;
-      }
-    },
   },
   actions: {
     createNewItem(dto: TodoItem): void {
@@ -49,8 +37,10 @@ export const useMainStore = defineStore({
 
     setItemState(id: string, state: ETodoItemState): void {
       const item = this.items.find((item) => item.id === id);
-      if (!item) return;
-      item.state = state;
+      if (item) {
+        item.state = state;
+      }
+
     },
 
     deleteItem(id: string): void {

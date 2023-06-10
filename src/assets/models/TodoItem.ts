@@ -1,7 +1,7 @@
 import { v4 as uuid } from "uuid";
 import { ETodoItemState } from "./ETodoItemState.enum";
 
-export class TodoItem {
+export default class TodoItem {
   id: string;
   description: string;
   state: ETodoItemState;
@@ -11,7 +11,7 @@ export class TodoItem {
     this.id = dto?.id || uuid();
     this.description = dto?.description || "";
     this.state = ETodoItemState.TODO;
-    this.created_at = dto.created_at || new Date();
+    this.created_at = dto?.created_at || new Date();
   }
 
   get isDone():boolean{

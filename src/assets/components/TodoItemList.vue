@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import {TodoItem} from "../models/TodoItem";
+import TodoItem from "./TodoItem.vue";
 import {useMainStore} from "../store";
 
 const store = useMainStore();
@@ -11,15 +11,14 @@ const store = useMainStore();
     <div class="fade-top-block"/>
     <div class="mt-[16px] w-full">
       <TransitionGroup name="list" tag="div">
-        <TodoItem v-for="iter in store.getItems" :key="iter.id" >
-        </TodoItem>
+        <TodoItem v-for="item in store.getItems" :key="item.id"  :model="item"/>
       </TransitionGroup>
     </div>
     <div class="fade-bottom-block"/>
   </div>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .check-button .fa-check {
   opacity: 0;
 }

@@ -14,3 +14,5 @@ import TodoItemList from "./assets/components/TodoItemList.vue";
     </div>
   </div>
 </template>
+
+<style lang="scss"></style>

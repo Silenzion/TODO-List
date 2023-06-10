@@ -1,12 +1,12 @@
 <script lang="ts" setup>
 import { ref } from "vue";
 import { useMainStore } from "../store";
-import { TodoItem } from "../models/TodoItem";
+import TodoItem  from "../models/TodoItem";
 import {ETodoItemState} from "../models/ETodoItemState.enum";
 
 const store = useMainStore();
 
-const todoForm = ref<TodoItem>(
+const newTodoItemForm = ref<TodoItem>(
   new TodoItem({
     description: "",
     state: ETodoItemState.TODO,
@@ -15,9 +15,9 @@ const todoForm = ref<TodoItem>(
 );
 
 const onSubmit = (): void => {
-  if (todoForm.value.description) {
-    store.createNewItem(todoForm.value);
-    todoForm.value = new TodoItem();
+  if (newTodoItemForm.value.description) {
+    store.createNewItem(newTodoItemForm.value);
+    newTodoItemForm.value = new TodoItem();
   }
 };
 </script>
@@ -25,7 +25,7 @@ const onSubmit = (): void => {
 <template>
   <div class="new-item-form flex w-full items-center justify-between rounded-lg p-24 text-center">
     <input
-      v-model="todoForm.description"
+      v-model="newTodoItemForm.description"
       class="base-input"
       type="text"
       placeholder="Add new task"
