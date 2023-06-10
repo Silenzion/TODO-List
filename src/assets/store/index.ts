@@ -43,12 +43,8 @@ export const useMainStore = defineStore({
     },
   },
   actions: {
-    createNewItem(item: TodoItem): void {
-      if (!item) return;
-      item.state = ETodoItemState.TODO;
-      item.created_at = new Date();
-      item.id = this.getLastIndex !== false ? this.getLastIndex + 1 : 0;
-      this.items.push(item);
+    createNewItem(dto: TodoItem): void {
+      this.items.push(new TodoItem(dto));
     },
 
     setItemState(id: string, state: ETodoItemState): void {
@@ -59,10 +55,9 @@ export const useMainStore = defineStore({
 
     deleteItem(id: string): void {
       const index = this.findIndexById(id);
-
-      if (index === -1) return;
-
-      this.items.splice(index, 1);
+      if (index !== -1) {
+        this.items.splice(index, 1);
+      }
     },
 
     findIndexById(id: string): number {

@@ -13,4 +13,12 @@ export class TodoItem {
     this.state = ETodoItemState.TODO;
     this.created_at = dto.created_at || new Date();
   }
+
+  get isDone():boolean{
+    return this.state === ETodoItemState.DONE;
+  }
+
+  get isToDo():boolean{
+    return this.state === ETodoItemState.TODO;
+  }
 }

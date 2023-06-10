@@ -23,7 +23,7 @@ const onSubmit = (): void => {
 </script>
 
 <template>
-  <div class="flex w-full items-center justify-between rounded-lg p-24 text-center">
+  <div class="new-item-form flex w-full items-center justify-between rounded-lg p-24 text-center">
     <input
       v-model="todoForm.description"
       class="base-input"
@@ -32,7 +32,19 @@ const onSubmit = (): void => {
       @keydown.enter="onSubmit"
     />
     <button type="button" class="base-button text-green-700" @click="onSubmit">
-      <i class="fa fa-plus" aria-hidden="true"></i>
+      <i class="fa fa-plus" aria-hidden="true"/>
     </button>
   </div>
 </template>
+
+<style lang="scss" scoped>
+.new-item-form{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  border-radius:40px;
+  padding: 2.4rem;
+  text-align: center;
+}
+</style>
