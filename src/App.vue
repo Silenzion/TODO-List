@@ -8,7 +8,7 @@ import TodoItemList from "./assets/components/TodoItemList.vue";
     <div
       class="base-card"
     >
-      <div class="page__title">TO DO LIST</div>
+      <h1 class="page__title">TO DO LIST</h1>
       <FormAddTodoItem />
       <TodoItemList />
     </div>

@@ -27,7 +27,7 @@ const store = useMainStore();
 
   @media (max-width: 600px) {
     overflow-y: auto;
-    overflow-x: visible;
+    overflow-x: hidden;
   }
 
   &__items{

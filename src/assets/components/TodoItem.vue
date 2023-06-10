@@ -53,7 +53,8 @@ const setStateIsTodo = (): void => {
 
   &__content {
     display: flex;
-    flex-direction: row; align-items: center;
+    flex-direction: row;
+    align-items: center;
     justify-content: space-between;
     padding-top: 0.5rem;
 
@@ -62,7 +63,9 @@ const setStateIsTodo = (): void => {
       align-items: center;
     }
   }
-  &-desc{
+
+  &__desc {
+    font-size: 1.5rem;
     margin-left: 1.2rem;
     text-align: left;
 
