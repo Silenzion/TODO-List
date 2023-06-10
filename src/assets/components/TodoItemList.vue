@@ -7,9 +7,9 @@ const store = useMainStore();
 </script>
 
 <template>
-  <div v-if="!!store.getItems.length" class="sm:overflow-visible overflow-y-auto overflow-x-visible w-full px-24 relative">
+  <div v-if="!!store.getItems.length" class="todo-list">
     <div class="fade-top-block"/>
-    <div class="mt-[16px] w-full">
+    <div class="todo-list__items">
       <TransitionGroup name="list" tag="div">
         <TodoItem v-for="item in store.getItems" :key="item.id"  :model="item"/>
       </TransitionGroup>
@@ -19,15 +19,23 @@ const store = useMainStore();
 </template>
 
 <style lang="scss" scoped>
-.check-button .fa-check {
-  opacity: 0;
-}
+.todo-list{
+  overflow: visible;
+  width: 100%;
+  padding: 0 2.4rem;
+  position: relative;
 
-.check-button:hover {
-  .fa-check {
-    opacity: 1 !important;
+  @media (max-width: 600px) {
+    overflow-y: auto;
+    overflow-x: visible;
+  }
+
+  &__items{
+    margin-top: 1.6rem;
+    width: 100%;
   }
 }
+
 
 .list-enter-active,
 .list-leave-active {

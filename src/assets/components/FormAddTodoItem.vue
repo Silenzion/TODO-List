@@ -23,7 +23,7 @@ const onSubmit = (): void => {
 </script>
 
 <template>
-  <div class="new-item-form flex w-full items-center justify-between rounded-lg p-24 text-center">
+  <div class="new-item-form">
     <input
       v-model="newTodoItemForm.description"
       class="base-input"
@@ -31,7 +31,7 @@ const onSubmit = (): void => {
       placeholder="Add new task"
       @keydown.enter="onSubmit"
     />
-    <button type="button" class="base-button text-green-700" @click="onSubmit">
+    <button type="button" class="base-button base-button_success" @click="onSubmit">
       <i class="fa fa-plus" aria-hidden="true"/>
     </button>
   </div>

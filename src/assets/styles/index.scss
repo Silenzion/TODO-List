@@ -1,7 +1,9 @@
 @import "variables";
+
 :root{
   font-size: 10px;
 }
+
 body {
   @apply bg-gray-300 text-gray-600;
   font-family: sans-serif;
@@ -29,51 +31,88 @@ button {
   border: none;
   outline: none;
   cursor: pointer;
-}
-
-button {
-  @apply p-0 bg-gray-200 font-bold;
+  padding: 0;
+  font-weight: bold;
+  background-color: $gray-200;
   text-align: center;
   transition: .15s ease-in-out;
   box-shadow: -6px -6px 14px rgba(255, 255, 255, .7),
   -6px -6px 10px rgba(255, 255, 255, .5),
   6px 6px 8px rgba(255, 255, 255, .075),
   6px 6px 10px rgba(0, 0, 0, .15);
+
+
+  &:hover {
+    box-shadow: -2px -2px 6px rgba(255, 255, 255, .6),
+    -2px -2px 4px rgba(255, 255, 255, .4),
+    2px 2px 2px rgba(255, 255, 255, .05),
+    2px 2px 4px rgba(0, 0, 0, .1);
+    transition: .3s ease-in-out;
+  }
+
+  &:active {
+    box-shadow: inset -2px -2px 6px rgba(255, 255, 255, .7),
+    inset -2px -2px 4px rgba(255, 255, 255, .5),
+    inset 2px 2px 2px rgba(255, 255, 255, .075),
+    inset 2px 2px 4px rgba(0, 0, 0, .15);
+    transition: .3s ease-in-out;
+  }
 }
 
-button:hover {
-  box-shadow: -2px -2px 6px rgba(255, 255, 255, .6),
-  -2px -2px 4px rgba(255, 255, 255, .4),
-  2px 2px 2px rgba(255, 255, 255, .05),
-  2px 2px 4px rgba(0, 0, 0, .1);
-  transition: .3s ease-in-out;
-}
-
-button:active {
-  box-shadow: inset -2px -2px 6px rgba(255, 255, 255, .7),
-  inset -2px -2px 4px rgba(255, 255, 255, .5),
-  inset 2px 2px 2px rgba(255, 255, 255, .075),
-  inset 2px 2px 4px rgba(0, 0, 0, .15);
-  transition: .3s ease-in-out;
-}
 
 .base{
   &-card {
-    @apply py-20 sm:px-30 flex min-h-[380px] h-screen sm:h-full w-full sm:max-w-[415px] flex-col items-center sm:rounded-lg bg-gray-300 transition-all duration-300;
-    box-shadow: 28px 28px 56px #cecece, -28px -28px 56px #ffffff;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    display: flex;
+    min-height: 38rem;
+    height: 100%;
+    width: 100%;
+    max-width: 41.5rem ;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 28px 28px 56px #cecece, -28px -28px 56px $white-100;
+    border-radius: $border-radius-lg;
+    background-color: $gray-300;
+    transition: all 0.3s ease-out;
+
+    @media (max-width: 600px) {
+      position: fixed;
+      top: 0;
+      left:0;
+      right: 0;
+      bottom:0;
+      border-radius: 0;
+      height: 100vh;
+      width: 100vw;
+      padding-left: 3rem;
+      padding-right: 3rem;
+    }
   }
 
   &-input{
-    @apply py-8 px-12 rounded-sm mr-[10px] h-[40px] w-full;
-    box-shadow: inset 2px 2px 5px #c8d0e7, inset -2px -2px 5px #FFFFFF;
-    caret-color: #575F6B;
+    width: 100%;
+    padding: 0.8rem 1.2rem;
+    border-radius: $border-radius-sm;
+    margin-right: 1rem;
+    height: 4rem;
+    box-shadow: inset 2px 2px 5px $gray-150, inset -2px -2px 5px $white-100;
+    caret-color: $gray-600;
   }
 
   &-button {
-    @apply shrink-0;
-    @apply align-middle rounded-sm;
-    width: 40px;
-    height: 40px;
+    flex-shrink: 0;
+    vertical-align: middle;
+    border-radius: $border-radius-sm;
+    width: 4rem;
+    height: 4rem;
+
+    &_success{
+      color: $green-700;
+    }
+    &_danger{
+      color: $red-700;
+    }
   }
 }
 

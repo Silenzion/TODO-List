@@ -4,15 +4,32 @@ import TodoItemList from "./assets/components/TodoItemList.vue";
 </script>
 
 <template>
-  <div class="flex min-h-screen items-center justify-center sm:px-10">
+  <main class="page">
     <div
       class="base-card"
     >
-      <div class="mb-20 text-left font-bold">TO DO LIST</div>
+      <div class="page__title">TO DO LIST</div>
       <FormAddTodoItem />
       <TodoItemList />
     </div>
-  </div>
+  </main>
 </template>
 
-<style lang="scss"></style>
+<style lang="scss" scoped>
+.page{
+  display: flex;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+
+  @media (max-width: 540px){
+    padding: 0 1rem;
+  }
+
+  &__title{
+    margin-bottom: 2rem;
+    text-align: left;
+    font-weight: bold;
+  }
+}
+</style>

@@ -22,25 +22,25 @@ const setStateIsTodo = (): void => {
 };
 </script>
 <template>
-    <div class="todo-item  mb-[24px] w-full">
-      <div class="flex flex-row items-center justify-between py-[5px]">
-        <div class="flex items-center">
-          <button v-if="model.isDone" class="base-button text-green-700" @click="setStateIsTodo">
-            <i class="fa fa-check" aria-hidden="true"></i>
+    <div class="todo-item">
+      <div class="todo-item__content">
+        <div class="todo-item__content-left">
+          <button v-if="model.isDone" class="base-button base-button_success" @click="setStateIsTodo">
+            <i class="fa fa-check" aria-hidden="true"/>
           </button>
           <button
             v-if="model.isToDo"
             class="base-button check-button text-gray-600"
             @click="setStateIsDone"
           >
-            <i class="fa fa-check transition-all" aria-hidden="true"></i>
+            <i class="fa fa-check transition-all" aria-hidden="true"/>
           </button>
-          <div class="ml-12 text-left" :class="{ 'line-through': model.isDone }">
+          <div class="todo-item__desc" :class="{ 'todo-item__desc_done': model.isDone }">
             {{ model.description }}
           </div>
         </div>
-        <button class="base-button text-red-700" @click="deleteElement">
-          <i class="fa fa-trash-o" aria-hidden="true"></i>
+        <button class="base-button base-button_danger" @click="deleteElement">
+          <i class="fa fa-trash-o" aria-hidden="true"/>
         </button>
       </div>
     </div>
@@ -50,5 +50,37 @@ const setStateIsTodo = (): void => {
 .todo-item{
   margin-bottom: 2.4rem;
   width: 100%;
+
+  &__content {
+    display: flex;
+    flex-direction: row; align-items: center;
+    justify-content: space-between;
+    padding-top: 0.5rem;
+
+    &-left{
+      display: flex;
+      align-items: center;
+    }
+  }
+  &-desc{
+    margin-left: 1.2rem;
+    text-align: left;
+
+    &_done{
+      text-decoration: line-through;
+    }
+
+  }
+}
+.check-button{
+  .fa-check {
+    opacity: 0;
+  }
+
+  &:hover {
+    .fa-check {
+      opacity: 1 !important;
+    }
+  }
 }
 </style>
