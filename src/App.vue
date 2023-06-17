@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import FormAddTodoItem from "@/assets/components/FormAddTodoItem.vue";
+import FormAddTodoItem from "./assets/components/TodoForm.vue";
 import TodoItemList from "./assets/components/TodoItemList.vue";
 </script>
 
