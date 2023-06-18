@@ -23,7 +23,7 @@ const onSubmit = (): void => {
 </script>
 
 <template>
-  <div class="new-item-form">
+  <div class="todo-item-form">
     <input
       v-model="newTodoItemForm.description"
       class="base-input"
@@ -38,7 +38,7 @@ const onSubmit = (): void => {
 </template>
 
 <style lang="scss" scoped>
-.new-item-form{
+.todo-item-form{
   display: flex;
   width: 100%;
   justify-content: space-between;

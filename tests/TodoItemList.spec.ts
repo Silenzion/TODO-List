@@ -11,7 +11,7 @@ describe("TodoItemList.vue",()=>{
 
   test("render", ()=>{
     const wrapper = mount(TodoItemList);
-    // expect(wrapper.findAllComponents(TodoItem)).toHaveLength(2);
+    expect(wrapper.findAllComponents(TodoItem)).toHaveLength(2);
   });
 });
 

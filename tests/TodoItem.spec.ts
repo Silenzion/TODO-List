@@ -14,7 +14,7 @@ describe("TodoItem.vue",()=>{
   });
 
   test("render", ()=>{
-    const wrapper = mount(TodoItem,{props:new TodoItemModel()});
+    const wrapper = mount(TodoItem,{props :{model:new TodoItemModel()}});
     expect(wrapper.findAll('.todo-item')).toHaveLength(1);
     expect( wrapper.get('.todo-item__desc').text()).toBe("");
 
@@ -39,7 +39,8 @@ describe("TodoItem.vue",()=>{
 
   test("done state",()=>{
     const doneTask = new TodoItemModel({
-      description: TEST_TEXT
+      description: TEST_TEXT,
+      state: ETodoItemState.DONE
     });
     const wrapper = mount(TodoItem,{
       props:{
@@ -48,7 +49,7 @@ describe("TodoItem.vue",()=>{
     });
     const doneBtn = wrapper.find('.todo-item__done-button');
     const todoBtn = wrapper.find('.todo-item__todo-button');
-    expect(wrapper.classes()).contain("todo-item_todo");
+    expect(wrapper.classes()).contain("todo-item_done");
     expect(todoBtn.exists()).toBe(true);
     expect(doneBtn.exists()).toBe(false);
   });
@@ -59,6 +60,6 @@ describe("TodoItem.vue",()=>{
     expect(deleteBtn.exists()).toBe(true);
 
     await deleteBtn.trigger('click');
-    expect(wrapper.emitted()).toBeDefined();
+    expect(wrapper.emitted()).toHaveProperty('delete');
   })
 });
