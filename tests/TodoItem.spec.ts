@@ -40,8 +40,8 @@ describe("TodoItem.vue",()=>{
   test("done state",()=>{
     const doneTask = new TodoItemModel({
       description: TEST_TEXT,
-      state: ETodoItemState.DONE
     });
+    doneTask.state = ETodoItemState.DONE;
     const wrapper = mount(TodoItem,{
       props:{
         model: doneTask
