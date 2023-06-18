@@ -2,8 +2,9 @@
 import TodoItem from "@/assets/models/TodoItem";
 import {ETodoItemState} from "@/assets/models/ETodoItemState.enum";
 import {useMainStore} from "@/assets/store";
-import {computed, StyleValue} from "vue";
+import {computed} from "vue";
 
+const emit = defineEmits(['delete','setDone','setToDo'])
 const props = defineProps<{
   model: TodoItem
 }>();
@@ -11,14 +12,17 @@ const props = defineProps<{
 const store = useMainStore();
 
 const deleteElement = async (): Promise<void> => {
+  emit('delete');
   store.deleteItem(props.model.id);
 };
 
 const setStateIsDone = (): void => {
+  emit('setDone');
   store.setItemState(props.model.id, ETodoItemState.DONE);
 };
 
 const setStateIsTodo = (): void => {
+  emit('setToDo');
   store.setItemState(props.model.id, ETodoItemState.TODO);
 };
 

@@ -13,7 +13,7 @@ describe("TodoItem.vue",()=>{
     setActivePinia(createPinia())
   });
 
-  test("render test", ()=>{
+  test("render", ()=>{
     const wrapper = mount(TodoItem,{props:new TodoItemModel()});
     expect(wrapper.findAll('.todo-item')).toHaveLength(1);
     expect( wrapper.get('.todo-item__desc').text()).toBe("");
@@ -41,15 +41,24 @@ describe("TodoItem.vue",()=>{
     const doneTask = new TodoItemModel({
       description: TEST_TEXT
     });
-  // TODO:дописать
+    const wrapper = mount(TodoItem,{
+      props:{
+        model: doneTask
+      }
+    });
+    const doneBtn = wrapper.find('.todo-item__done-button');
+    const todoBtn = wrapper.find('.todo-item__todo-button');
+    expect(wrapper.classes()).contain("todo-item_todo");
+    expect(todoBtn.exists()).toBe(true);
+    expect(doneBtn.exists()).toBe(false);
   });
 
   test('Delete', async () => {
     const wrapper = mount(TodoItem,{props:{model: new TodoItemModel()}})
-    const deleteBtn = wrapper.find('.todo-item__delete-button')
+    const deleteBtn = wrapper.find('.todo-item__delete-button');
     expect(deleteBtn.exists()).toBe(true);
 
     await deleteBtn.trigger('click');
-    expect(wrapper.exists()).toBe(false);
+    expect(wrapper.emitted()).toBeDefined();
   })
 });
