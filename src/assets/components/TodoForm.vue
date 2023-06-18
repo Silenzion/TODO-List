@@ -2,14 +2,12 @@
 import { ref } from "vue";
 import { useMainStore } from "../store";
 import TodoItem  from "../models/TodoItem";
-import {ETodoItemState} from "../models/ETodoItemState.enum";
 
 const store = useMainStore();
 
 const newTodoItemForm = ref<TodoItem>(
   new TodoItem({
     description: "",
-    state: ETodoItemState.TODO,
     created_at: new Date(),
   })
 );
