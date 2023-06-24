@@ -48,7 +48,7 @@ describe("TodoItem.vue",()=>{
     });
     const doneBtn = wrapper.find('.todo-item__done-button');
     const todoBtn = wrapper.find('.todo-item__todo-button');
-    expect(wrapper.classes()).contain("todo-item_done");
+    expect(wrapper.classes()).toContain("todo-item_done");
     expect(todoBtn.exists()).toBe(true);
     expect(doneBtn.exists()).toBe(false);
   });
