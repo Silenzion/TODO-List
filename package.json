@@ -17,6 +17,7 @@
     "test:build": "vitest --mode test-build"
   },
   "dependencies": {
+    "@types/jest": "^29.5.2",
     "axios": "^0.26.1",
     "class-transformer": "^0.5.1",
     "eslint": "^8.42.0",

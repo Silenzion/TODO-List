@@ -22,7 +22,7 @@
       "@/*": ["src/*"]
     },
     "lib": ["esnext", "dom", "dom.iterable", "scripthost"],
-    "types": ["@types/node","vite/client"]
+    "types": ["@types/node","vite/client","@types/jest"]
   },
   "include": [
     "src/**/*.js",

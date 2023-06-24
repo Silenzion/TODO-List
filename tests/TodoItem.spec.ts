@@ -1,6 +1,5 @@
 import { mount } from "@vue/test-utils";
 import { createPinia, setActivePinia } from "pinia";
-import { beforeEach, describe, expect, test } from "vitest";
 import TodoItem from "../src/assets/components/TodoItem.vue";
 import { ETodoItemState } from "../src/assets/models/ETodoItemState.enum";
 import TodoItemModel from "../src/assets/models/TodoItem";
@@ -32,7 +31,7 @@ describe("TodoItem.vue",()=>{
     });
     const doneBtn = wrapper.find('.todo-item__done-button');
     const todoBtn = wrapper.find('.todo-item__todo-button');
-    expect(wrapper.classes()).contain("todo-item_todo");
+    expect(wrapper.classes()).toContain("todo-item_todo");
     expect(todoBtn.exists()).toBe(false);
     expect(doneBtn.exists()).toBe(true);
   });
