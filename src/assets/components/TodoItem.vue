@@ -9,21 +9,17 @@ const props = defineProps<{
   model: TodoItem
 }>();
 
-const store = useMainStore();
 
-const deleteElement = async (): Promise<void> => {
+const emitDeleteElement = async (): Promise<void> => {
   emit('delete');
-  store.deleteItem(props.model.id);
 };
 
-const setStateIsDone = (): void => {
+const emitSetStateIsDone = (): void => {
   emit('setDone');
-  store.setItemState(props.model.id, ETodoItemState.DONE);
 };
 
-const setStateIsTodo = (): void => {
+const emitSetStateIsTodo = (): void => {
   emit('setToDo');
-  store.setItemState(props.model.id, ETodoItemState.TODO);
 };
 
 const classes = computed<Record<string, boolean>>(()=>{
@@ -37,13 +33,13 @@ const classes = computed<Record<string, boolean>>(()=>{
     <div class="todo-item" :class="classes">
       <div class="todo-item__content">
         <div class="todo-item__content-left">
-          <button v-if="model.isDone" class="todo-item__todo-button base-button base-button_success" @click="setStateIsTodo">
+          <button v-if="model.isDone" class="todo-item__todo-button base-button base-button_success" @click="emitSetStateIsTodo">
             <i class="fa fa-check" aria-hidden="true"/>
           </button>
           <button
             v-if="model.isToDo"
             class="todo-item__done-button base-button check-button text-gray-600"
-            @click="setStateIsDone"
+            @click="emitSetStateIsDone"
           >
             <i class="fa fa-check transition-all" aria-hidden="true"/>
           </button>
@@ -51,7 +47,7 @@ const classes = computed<Record<string, boolean>>(()=>{
             {{ model.description }}
           </div>
         </div>
-        <button class="todo-item__delete-button base-button base-button_danger" @click="deleteElement">
+        <button class="todo-item__delete-button base-button base-button_danger" @click="emitDeleteElement">
           <i class="fa fa-trash-o" aria-hidden="true"/>
         </button>
       </div>

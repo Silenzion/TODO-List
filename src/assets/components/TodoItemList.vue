@@ -1,9 +1,21 @@
 <script lang="ts" setup>
 import TodoItem from "./TodoItem.vue";
 import {useMainStore} from "../store";
+import {ETodoItemState} from "../models/ETodoItemState.enum";
 
 const store = useMainStore();
 
+const deleteElement = async (item: TodoItem): Promise<void> => {
+  store.deleteItem(item.id);
+};
+
+const setStateIsDone = (item: TodoItem): void => {
+  store.setItemState(item.id, ETodoItemState.DONE);
+};
+
+const setStateIsTodo = (item: TodoItem): void => {
+  store.setItemState(item.id, ETodoItemState.TODO);
+};
 </script>
 
 <template>
@@ -11,7 +23,8 @@ const store = useMainStore();
     <div class="fade-top-block"/>
     <div class="todo-list__items">
       <TransitionGroup name="list" tag="div">
-        <TodoItem v-for="item in store.getItems" :key="item.id"  :model="item"/>
+        <TodoItem v-for="item in store.getItems" :key="item.id"  :model="item" @delete="deleteElement(item)"
+                  @setDone="setStateIsDone(item)" @setTodo="setStateIsTodo(item)"/>
       </TransitionGroup>
     </div>
     <div class="fade-bottom-block"/>
