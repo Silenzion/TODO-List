@@ -6,7 +6,7 @@
     "serve": "vite preview",
     "build": "vue-tsc --noEmit && vite build",
     "dev": "vite",
-    "format": "prettier .  --write",
+    "format": "prettier .  --write --fix",
     "lint:script": "eslint --ext .ts,vue --ignore-path .gitignore --fix src",
     "lint:style": "stylelint src/**/*.{css,scss,vue}",
     "predeploy": "npm run build",
@@ -68,6 +68,11 @@
     "vite-plugin-package-config": "^0.1.1",
     "vue-loader": "17.2.2",
     "vue-tsc": "^1.6.5"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   },
   "lint-staged": {
     "**/*.{css,scss,vue}": [
