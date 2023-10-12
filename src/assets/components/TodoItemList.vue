@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import TodoItem from "./TodoItem.vue";
+import TodoItem from "../models/TodoItem";
 import {useMainStore} from "../store";
 import {ETodoItemState} from "../models/ETodoItemState.enum";
 
