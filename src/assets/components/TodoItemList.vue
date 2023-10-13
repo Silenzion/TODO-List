@@ -2,6 +2,7 @@
 import TodoItem from "../models/TodoItem";
 import {useMainStore} from "../store";
 import {ETodoItemState} from "../models/ETodoItemState.enum";
+import TodoItemEl from "../components/TodoItemEl.vue"
 
 const store = useMainStore();
 
@@ -23,7 +24,7 @@ const setStateIsTodo = (item: TodoItem): void => {
     <div class="fade-top-block"/>
     <div class="todo-list__items">
       <TransitionGroup name="list" tag="div">
-        <TodoItem v-for="item in store.getItems" :key="item.id"  :model="item" @delete="deleteElement(item)"
+        <TodoItemEl v-for="item in store.getItems" :key="item.id"  :model="item" @delete="deleteElement(item)"
                   @setDone="setStateIsDone(item)" @setTodo="setStateIsTodo(item)"/>
       </TransitionGroup>
     </div>

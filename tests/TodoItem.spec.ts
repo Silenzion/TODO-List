@@ -1,6 +1,6 @@
 import { mount } from "@vue/test-utils";
 import { createPinia, setActivePinia } from "pinia";
-import TodoItem from "../src/assets/components/TodoItem.vue";
+import TodoItem from "../src/assets/components/TodoItemEl.vue";
 import { ETodoItemState } from "../src/assets/models/ETodoItemState.enum";
 import TodoItemModel from "../src/assets/models/TodoItem";
 
