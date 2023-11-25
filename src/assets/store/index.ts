@@ -40,7 +40,6 @@ export const useMainStore = defineStore({
       if (item) {
         item.state = state;
       }
-
     },
 
     deleteItem(id: string): void {
